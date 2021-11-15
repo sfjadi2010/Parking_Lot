@@ -13,5 +13,5 @@ files:
     class Product(val price: Int)
   learner_created: false
 feedback_link: https://hyperskill.org/learn/step/7777#comment
-status: Unchecked
+status: Solved
 record: -1
