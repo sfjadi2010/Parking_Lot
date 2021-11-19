@@ -28,3 +28,4 @@ content:
 - Type system
 - Member functions
 - Inheritance
+- toString()
