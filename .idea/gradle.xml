@@ -30,6 +30,10 @@
             <option value="$PROJECT_DIR$/Topics/Constructors/Pets" />
             <option value="$PROJECT_DIR$/Topics/Constructors/Point2D" />
             <option value="$PROJECT_DIR$/Topics/Constructors/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Data class/Theory" />
+            <option value="$PROJECT_DIR$/Topics/Data class/copy() usage" />
+            <option value="$PROJECT_DIR$/Topics/Data class/equals() check" />
+            <option value="$PROJECT_DIR$/Topics/Data class/toString() modification" />
             <option value="$PROJECT_DIR$/Topics/Declaring classes/Area printer" />
             <option value="$PROJECT_DIR$/Topics/Declaring classes/Complex numbers" />
             <option value="$PROJECT_DIR$/Topics/Declaring classes/Composition" />
