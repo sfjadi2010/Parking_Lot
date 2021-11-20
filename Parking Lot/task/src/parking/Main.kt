@@ -1,5 +1,7 @@
 package parking
 
+import java.util.*
+
 class Car(var registrationNumber: String, var color: String)
 class ParkingSpot(var parkingSpot: Int, var car: Car? = null, var isSpotFree: Boolean = true)
 
@@ -21,10 +23,65 @@ fun main() {
             input[0] == "leave" -> {
                 leave(parkingSpots, input)
             }
+            input[0] == "reg_by_color" -> {
+                regByColor(parkingSpots, input)
+            }
+            input[0] == "spot_by_color" -> {
+                spotBy(parkingSpots, input, "color")
+            }
+            input[0] == "spot_by_reg" -> {
+                spotBy(parkingSpots, input, "registration ")
+            }
             else -> {
                 break
             }
         }
+    }
+}
+
+fun spotBy(parkingSpots: MutableList<ParkingSpot>?, input: List<String>, category: String) {
+    if (parkingSpots != null) {
+        if (category == "color") {
+            val spots = parkingSpots.filter { it ->
+                it.car?.color?.lowercase(Locale.getDefault()) == input[1].lowercase(Locale.getDefault()) }
+            if (spots.isNotEmpty()) {
+                val list = mutableListOf<Int>()
+                for (spot in spots) {
+                    spot.parkingSpot.let { list.add(it) }
+                }
+                println(list.joinToString())
+            } else {
+                println("No cars with color ${input[1]} were found.")
+            }
+        } else {
+            val spots = parkingSpots.filter { it ->
+                it.car?.registrationNumber?.lowercase(Locale.getDefault()) == input[1].lowercase(Locale.getDefault()) }
+            if (spots.isNotEmpty()) {
+                println(spots.first().parkingSpot)
+            } else {
+                println("No cars with registration number ${input[1]} were found.")
+            }
+        }
+    } else {
+        println("Sorry, a parking lot has not been created.")
+    }
+}
+
+fun regByColor(parkingSpots: MutableList<ParkingSpot>?, input: List<String>) {
+    if (parkingSpots != null) {
+        val regs = parkingSpots.filter { it ->
+            it.car?.color?.lowercase(Locale.getDefault()) == input[1].lowercase(Locale.getDefault()).trim()}
+        if (regs.isNotEmpty()) {
+            val regList = mutableListOf<String>()
+            for(reg in regs) {
+                reg.car?.registrationNumber?.let { regList.add(it) }
+            }
+            println(regList.joinToString())
+        } else {
+            println("No cars with color ${input[1]} were found.")
+        }
+    } else {
+        println("Sorry, a parking lot has not been created.")
     }
 }
 
